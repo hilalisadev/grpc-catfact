@@ -16,7 +16,7 @@ export class AppComponent {
   private catFactClient: CatFactServiceClient;
 
   public ngOnInit(): void {
-    this.catFactClient = new CatFactServiceClient("http://localhost:8080", null, null)
+    this.catFactClient = new CatFactServiceClient("http://localhost:8080")
   }
 
   private getFact(): void {
@@ -24,7 +24,9 @@ export class AppComponent {
     const metaData: any = {}
 
     this.catFactClient.get(catFactRequest, metaData, (err, response: CatFactResponse) => {
-      this.currentFact = response.fact;
+      console.log(err);
+      console.log(response);
+      this.currentFact = response.getFact();
     });
   }
 }
