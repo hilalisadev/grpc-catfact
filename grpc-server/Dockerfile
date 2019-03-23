@@ -1,7 +1,7 @@
 # Copy over the required dependencies and build the binary
 FROM golang
 
-COPY ./catfact /go/src/github.com/jpreese/grpc-catfact/grpc-server/catfact
+COPY ./protos /go/src/github.com/jpreese/grpc-catfact/grpc-server/protos
 COPY ./server.go .
 
 RUN go get -d -v

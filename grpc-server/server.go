@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/jpreese/grpc-catfact/grpc-server/catfact"
+	"github.com/jpreese/grpc-catfact/grpc-server/protos/catfact"
 	"google.golang.org/grpc"
 	"log"
 	"net"
