@@ -19,7 +19,7 @@ export class AppComponent {
     this.catFactClient = new CatFactServiceClient("http://localhost:8080", null, null);
   }
 
-  private onClickHandler(): void {
+  public onClickHandler(): void {
     const catFactRequest: CatFactRequest = new CatFactRequest();
     const metaData: any = {}
 
