@@ -1,6 +1,5 @@
 static_resources:
   listeners:
-  - name: listener_0
     address:
       socket_address: { address: 0.0.0.0, port_value: 8080 }
     filter_chains:
@@ -12,7 +11,7 @@ static_resources:
           route_config:
             name: local_route
             virtual_hosts:
-            - name: local_service
+            - name: backend
               domains: ["*"]
               routes:
               - match: { prefix: "/" }
@@ -28,6 +27,7 @@ static_resources:
           - name: envoy.grpc_web
           - name: envoy.cors
           - name: envoy.router
+
   clusters:
   - name: catfact_service
     connect_timeout: 0.25s

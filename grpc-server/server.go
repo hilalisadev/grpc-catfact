@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/jpreese/catfact/catfact"
+	"github.com/jpreese/grpc-catfact/grpc-server/catfact"
 	"google.golang.org/grpc"
 	"log"
 	"net"
@@ -25,10 +25,8 @@ func main() {
 	catfact.RegisterCatFactServiceServer(grpcServer, &catFactServer)
 	log.Printf("Service registered.")
 
-	log.Printf("Attempting to start service.")
+	log.Printf("Started service.")
 	if err := grpcServer.Serve(lis); err != nil {
 		log.Fatalf("Failed to start service: %s", err)
-	} else {
-		log.Printf("Service started.")
 	}
 }

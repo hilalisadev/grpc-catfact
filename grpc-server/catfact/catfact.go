@@ -5,7 +5,7 @@ import (
 	"log"
 )
 
-// Server contains all available procedures
+// Server represents the gRPC server
 type Server struct {
 }
 
