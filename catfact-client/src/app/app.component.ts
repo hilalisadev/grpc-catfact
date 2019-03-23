@@ -7,7 +7,7 @@ import { CatFactRequest, CatFactResponse } from '../proto/catfact_pb';
   selector: 'app-root',
   template: `
     <div id="factPlaceholder">{{ currentFact }}</div>
-    <button type="button" class="btn btn-primary" (click)="getFact()">Get Fact</button>
+    <button type="button" class="btn btn-primary" (click)="onClickHandler()">Get Fact</button>
   `
 })
 export class AppComponent {
@@ -16,16 +16,14 @@ export class AppComponent {
   private catFactClient: CatFactServiceClient;
 
   public ngOnInit(): void {
-    this.catFactClient = new CatFactServiceClient("http://localhost:8080")
+    this.catFactClient = new CatFactServiceClient("http://localhost:8080", null, null);
   }
 
-  private getFact(): void {
+  private onClickHandler(): void {
     const catFactRequest: CatFactRequest = new CatFactRequest();
     const metaData: any = {}
 
     this.catFactClient.get(catFactRequest, metaData, (err, response: CatFactResponse) => {
-      console.log(err);
-      console.log(response);
       this.currentFact = response.getFact();
     });
   }
