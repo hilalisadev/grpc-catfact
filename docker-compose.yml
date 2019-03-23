@@ -7,11 +7,20 @@ services:
     build: ./grpc-server
     expose:
       - "7777"
+    networks:
+      mesh:
+        aliases:
+          - grpc-server
 
   envoy:
     image: envoy:sidecar
     build: ./envoy
     ports: 
       - "8080:8080"
-    links:
-      - grpc-server
+    networks:
+      mesh:
+        aliases:
+          - envoy-sidecar
+
+networks:
+  mesh:
