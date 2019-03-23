@@ -1,13 +1,8 @@
-/* The language guide for how to name and format proto files can be found here:
- * https://developers.google.com/protocol-buffers/docs/proto3 */
 syntax = "proto3";
 
 message CatFactRequest { }
 
 message CatFactResponse {
-    /* 1 is a unique number that is used to identify the field.
-     * Since the payload is a key-value pair, instead of using
-     * 'fact' as the key, it will be replaced by 1. */
     string fact = 1;
 }  
 
