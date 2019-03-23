@@ -1,3 +1,5 @@
+/* The language guide for how to name and format proto files can be found here:
+ * https://developers.google.com/protocol-buffers/docs/proto3 */
 syntax = "proto3";
 
 message CatFactRequest { }
