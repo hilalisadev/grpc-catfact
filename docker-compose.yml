@@ -5,14 +5,13 @@ services:
   grpc-server:
     image: grpc:server
     build: ./grpc-server
-    expose:
-      - "7777"
-    depends_on:
-      - envoy
+    ports:
+      - "7777:7777"
 
   envoy:
     image: envoy:sidecar
     build: ./envoy
     ports: 
       - "8080:8080"
-      
+    links:
+      - grpc-server
