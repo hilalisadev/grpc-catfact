@@ -2,6 +2,12 @@ version: "3"
 
 services:
 
+  catfact-client:
+    image: catfact:client
+    build: ./catfact-client
+    ports:
+      - "8081:80"
+
   grpc-server:
     image: grpc:server
     build: ./grpc-server
