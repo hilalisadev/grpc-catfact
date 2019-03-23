@@ -15,10 +15,10 @@ func main() {
 		log.Fatalf("Failed to listen on specified port: %v", err)
 	}
 
-	s := catfact.Server{}
+	catFactServer := catfact.Server{}
 	grpcServer := grpc.NewServer()
 
-	catfact.RegisterCatFactServiceServer(grpcServer, &s)
+	catfact.RegisterCatFactServiceServer(grpcServer, &catFactServer)
 
 	if err := grpcServer.Serve(lis); err != nil {
 		log.Fatalf("Failed to start service: %s", err)

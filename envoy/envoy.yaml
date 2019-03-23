@@ -21,7 +21,7 @@ static_resources:
               domains: ["*"]
               routes:
               - match: { prefix: "/" }
-                route: { cluster: echo_service }
+                route: { cluster: catfact_service }
               cors:
                 allow_origin: ["*"]
                 allow_methods: GET, PUT, DELETE, POST, OPTIONS
@@ -34,7 +34,7 @@ static_resources:
           - name: envoy.cors
           - name: envoy.router
   clusters:
-  - name: echo_service
+  - name: catfact_service
     connect_timeout: 0.25s
     type: logical_dns
     http2_protocol_options: {}
