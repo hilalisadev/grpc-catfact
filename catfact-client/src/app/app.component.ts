@@ -24,7 +24,6 @@ export class AppComponent {
     const metaData: any = {}
 
     this.catFactClient.get(catFactRequest, metaData, (err, response: CatFactResponse) => {
-      console.log(response);
       this.currentFact = response.getFact();
     });
   }
