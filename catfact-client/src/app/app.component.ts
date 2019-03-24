@@ -12,7 +12,7 @@ import { CatFactRequest, CatFactResponse } from '../proto/catfact_pb';
 })
 export class AppComponent {
 
-  public currentFact: string = "";
+  public currentFact: string = "Your facts are waiting for you!";
   private catFactClient: CatFactServiceClient;
 
   public ngOnInit(): void {

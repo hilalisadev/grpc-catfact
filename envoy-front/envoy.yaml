@@ -22,7 +22,7 @@ static_resources:
               - match:
                   prefix: "/"
                 route: 
-                  cluster: catfact_ui
+                  cluster: catfact_client
               cors:
                 allow_origin: ["*"]
                 allow_methods: GET, PUT, DELETE, POST, OPTIONS
@@ -42,9 +42,9 @@ static_resources:
     http2_protocol_options: {}
     lb_policy: round_robin
     hosts: [{ socket_address: { address: grpc-server, port_value: 80 }}]
-  - name: catfact_ui
+  - name: catfact_client
     connect_timeout: 0.25s
     type: logical_dns
     lb_policy: round_robin
-    hosts: [{ socket_address: { address: catfact-ui, port_value: 80 }}]
+    hosts: [{ socket_address: { address: catfact-client, port_value: 80 }}]
     

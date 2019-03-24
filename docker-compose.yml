@@ -2,7 +2,7 @@ version: "3"
 
 services:
 
-  catfact-ui:
+  catfact-client:
     image: catfact:client
     build: ./catfact-client
     expose:
@@ -10,7 +10,7 @@ services:
     networks:
       mesh:
         aliases:
-          - catfact-ui
+          - catfact-client
 
   grpc-server:
     image: grpc:server
@@ -22,9 +22,9 @@ services:
         aliases:
           - grpc-server
 
-  envoy:
+  envoy-front:
     image: envoy:front
-    build: ./envoy
+    build: ./envoy-front
     ports: 
       - "8080:8080"
     networks:
