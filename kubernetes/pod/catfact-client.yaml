@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod                                            
+metadata:
+  name: catfact-client
+  labels:
+    app: catfact-client                            
+spec:                                                
+  containers:
+    - image: catfact-client:v1
+      name: catfact-client                            
+      ports:
+        - containerPort: 80
